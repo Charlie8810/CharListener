@@ -41,6 +41,7 @@ namespace Charlistener
             {
                 this.EscribirDato(file.LastWriteTime);
                 Persistencia.Data.ServicioDataAccess.EjecutarTareaMSSQL(ConfigurationSettings.AppSettings["nombreTarea"].ToString());
+                //Persistencia.Data.ServicioDataAccess.EscribirPrueba(file.LastWriteTime.ToString("dd-MM-yyyy HH:mm:ss.fffffff"));
             }
             
         }
@@ -49,7 +50,7 @@ namespace Charlistener
 
         private void EscribirDato(DateTime Fecha)
         {
-            string[] lines = { Fecha.TimeOfDay.ToString() };
+            string[] lines = { Fecha.ToString("dd-MM-yyyy HH:mm:ss.fffffff") };
             using (StreamWriter outputFile = new StreamWriter(ConfigurationSettings.AppSettings["FechAct"].ToString()))
             {
                 foreach (string line in lines)

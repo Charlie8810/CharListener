@@ -19,9 +19,9 @@ namespace Charlistener.Persistencia.Data
         }
 
 
-        public static void EscribirPrueba()
+        public static void EscribirPrueba(string nombreTarea)
         {
-            DBHelper.InstanceReporteria.EjecutarSql("insert into BD_INTERNA.dbo.CharliTest values ('Hola')");
+            DBHelper.InstanceReporteria.EjecutarSql("insert into BD_INTERNA.dbo.CharliTest values ('"+ nombreTarea + "')");
         }
 
         

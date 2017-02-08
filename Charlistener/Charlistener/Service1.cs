@@ -39,8 +39,12 @@ namespace Charlistener
             
             if (file.LastWriteTime != this.LeerDato())
             {
-                this.EscribirDato(file.LastWriteTime);
-                Persistencia.Data.ServicioDataAccess.EjecutarTareaMSSQL(ConfigurationSettings.AppSettings["nombreTarea"].ToString());
+                
+                if (Persistencia.Data.ServicioDataAccess.EjecutarProceso(ConfigurationSettings.AppSettings["nombreTarea"].ToString()) > 0)
+                {
+                    this.EscribirDato(file.LastWriteTime);
+                }
+                //Persistencia.Data.ServicioDataAccess.EjecutarTareaMSSQL(ConfigurationSettings.AppSettings["nombreTarea"].ToString());
                 //Persistencia.Data.ServicioDataAccess.EscribirPrueba(file.LastWriteTime.ToString("dd-MM-yyyy HH:mm:ss.fffffff"));
             }
             

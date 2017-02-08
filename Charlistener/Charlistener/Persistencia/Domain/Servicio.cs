@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Charlistener.Persistencia.Domain
 {
-    class Servicio
+    public class Servicio
     {
     }
 }

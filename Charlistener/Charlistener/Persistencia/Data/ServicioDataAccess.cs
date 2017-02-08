@@ -12,19 +12,19 @@ namespace Charlistener.Persistencia.Data
     public static class ServicioDataAccess
     {
 
+
         public static void EjecutarTareaMSSQL(string nombreTarea)
         {
             Parametro x = new Parametro("@job_name", nombreTarea);
             DBHelper.InstanceMSDB.EjecutarProcedimiento("sp_start_job", x);
         }
 
-
-        public static void EscribirPrueba(string nombreTarea)
+        public static int EjecutarProceso(string nombreTarea)
         {
-            DBHelper.InstanceReporteria.EjecutarSql("insert into BD_INTERNA.dbo.CharliTest values ('"+ nombreTarea + "')");
+            Parametro x = new Parametro("@nombre_tarea", nombreTarea);
+            //DBHelper.InstanceInterna.EjecutarProcedimiento("sp_SRV_ListenerIA", x);
+            return DBHelper.InstanceInterna.ObtenerEscalar<int>("sp_SRV_ListenerIA", x);
         }
-
-        
         
     }
 }

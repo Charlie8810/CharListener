@@ -6,32 +6,21 @@ namespace CDK.Integration
     {
         #region Instancias Privadas
 
-        private static DBHelperBase _instanceReporteria;
-        private static DBHelperBase _instanceCampanias;
+        private static DBHelperBase instanceInterna;
+        private static DBHelperBase _instanceMSDB;
 
         #endregion
 
         #region Instancias Singleton
 
-        public static DBHelperBase InstanceReporteria
+        public static DBHelperBase InstanceInterna
         {
-            get { return (_instanceReporteria = _instanceReporteria ?? new DBHelperBase("CN_REPORTERIA")); }
-        }
-
-
-        public static DBHelperBase InstanceCampanias
-        {
-            get { return (_instanceCampanias = _instanceCampanias ?? new DBHelperBase("CN_CAMPANIAS")); }
-        }
-
-        public static DBHelperBase InstanceSecurity
-        {
-            get { return (_instanceCampanias = _instanceCampanias ?? new DBHelperBase("CN_SECURITY")); }
+            get { return (instanceInterna = instanceInterna ?? new DBHelperBase("CN_INTERNA")); }
         }
 
         public static DBHelperBase InstanceMSDB
         {
-            get { return (_instanceCampanias = _instanceCampanias ?? new DBHelperBase("CN_MSDB")); }
+            get { return (_instanceMSDB = _instanceMSDB ?? new DBHelperBase("CN_MSDB")); }
         }
 
         #endregion
